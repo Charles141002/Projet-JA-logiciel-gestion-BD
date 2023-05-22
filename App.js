@@ -10,6 +10,7 @@ import ExportationExcel from './Charles/Exportation_excel';
 import TableauFicheClient from './Charles/Tableau_fiche_client';
 import TableauFicheEntreprise from './Charles/Tableau_fiche_entreprise';
 import TableauFicheReseau from './Charles/Tableau_fiche_reseau';
+import BarreRecherche from './Charles/Barre_de_recherche';
 
 import Menu from './Charles/Menu_deroulant';
 
@@ -17,15 +18,6 @@ function App() {
   const file = XLSX.readFile('./src/fichier_excel/Classeur1.xlsx');
   const sheets = [0,1,2].map(key => file.Sheets[file.SheetNames[key]]);
   const datas = sheets.map(sheet => XLSX.utils.sheet_to_json(sheet));
-  const worksheet = file.Sheets[file.SheetNames[0]];
-  const worksheet1 = file.Sheets[file.SheetNames[1]];
-  const worksheet2 = file.Sheets[file.SheetNames[2]];
-
-
-  const data = XLSX.utils.sheet_to_json(worksheet);
-  const data1 = XLSX.utils.sheet_to_json(worksheet1);
-  const data2 = XLSX.utils.sheet_to_json(worksheet2);
-
 
   const [activePage, setActivePage] = useState('');
 
@@ -55,8 +47,10 @@ function App() {
         return <TableauFicheEntreprise donnees={datas[1]}/>
       case 'tableauFicheReseau':
         return <TableauFicheReseau donnees={datas[2]}/>
-        case 'afficherMenu':
-          return <Menu />
+      case 'afficherMenu':
+        return <Menu />
+      case 'afficherBarreRecherche':
+        return <BarreRecherche  donnees={datas}/>
       default:
         return null;
     }
@@ -77,6 +71,8 @@ function App() {
           <button onClick={() => handleClick('tableauFicheReseau')}>Tableau Fiche Reseau</button>
           <button onClick={() => handleClick('exporterExcel')}>Exporter Fichier Excel</button>
           <button onClick={() => handleClick('afficherMenu')}>Afficher Menu</button>
+          <button onClick={() => handleClick('afficherBarreRecherche')}>Afficher Barre de Recherche</button>
+
 
         </div>
         <div className="content">{renderActivePage()}</div>

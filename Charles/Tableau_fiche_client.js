@@ -4,7 +4,8 @@ import PetiteFicheClient from './Petite_fiche_client.js';
 
 function TableauFicheClient(donnees) {
 
-
+  console.log(donnees.donnees[0]);
+console.log(Object.entries(donnees.donnees[0])[0][1])
     const [tableauFiches, setTableauFiches] = useState([]);
 
     const RechercheFicheNom = (e) => {
