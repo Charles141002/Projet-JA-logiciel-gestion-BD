@@ -14,7 +14,9 @@ import TableauFicheReseau from './Charles/Tableau_fiche_reseau';
 import Menu from './Charles/Menu_deroulant';
 
 function App() {
-  const file = XLSX.readFile('./src/fichier_excel/Classeur1.xlsx')
+  const file = XLSX.readFile('./src/fichier_excel/Classeur1.xlsx');
+  const sheets = [0,1,2].map(key => file.Sheets[file.SheetNames[key]]);
+  const datas = sheets.map(sheet => XLSX.utils.sheet_to_json(sheet));
   const worksheet = file.Sheets[file.SheetNames[0]];
   const worksheet1 = file.Sheets[file.SheetNames[1]];
   const worksheet2 = file.Sheets[file.SheetNames[2]];
