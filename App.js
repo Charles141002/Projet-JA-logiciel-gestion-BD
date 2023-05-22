@@ -42,19 +42,19 @@ function App() {
       case 'ficheReseau':
         return <FicheReseau />;
       case 'rechercheFicheClient':
-        return <RechercheFicheClient donnees={data}/>;
+        return <RechercheFicheClient donnees={datas[0]}/>;
       case 'rechercheFicheEntreprise':
-        return <RechercheFicheEntreprise donnees={data1}/>;
+        return <RechercheFicheEntreprise donnees={datas[1]}/>;
       case 'rechercheFicheReseau':
-        return <RechercheFicheReseau donnees={data2}/>;
+        return <RechercheFicheReseau donnees={datas[2]}/>;
       case 'exporterExcel':
         return <ExportationExcel/>
       case 'tableauFicheClient':
-        return <TableauFicheClient donnees={data}/>
+        return <TableauFicheClient donnees={datas[0]}/>
       case 'tableauFicheEntreprise':
-        return <TableauFicheEntreprise donnees={data1}/>
+        return <TableauFicheEntreprise donnees={datas[1]}/>
       case 'tableauFicheReseau':
-        return <TableauFicheReseau donnees={data2}/>
+        return <TableauFicheReseau donnees={datas[2]}/>
         case 'afficherMenu':
           return <Menu />
       default:
