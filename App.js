@@ -14,7 +14,7 @@ import TableauFicheReseau from './Charles/Tableau_fiche_reseau';
 import Menu from './Charles/Menu_deroulant';
 
 function App() {
-  const file = XLSX.readFile('./src/fichier_excel/Classeur1.xlsx');
+  const file = XLSX.readFile('C:/Users/bapti/Downloads/Classeur1.xlsx');
   const sheets = [0,1,2].map(key => file.Sheets[file.SheetNames[key]]);
   const datas = sheets.map(sheet => XLSX.utils.sheet_to_json(sheet));
   const worksheet = file.Sheets[file.SheetNames[0]];
@@ -67,6 +67,7 @@ function App() {
       <div className="container">
         <div className="menu">
           <button onClick={() => handleClick('ficheClient')}>Ajout Fiche Client</button>
+          <Menu datas={datas} />
           <button onClick={() => handleClick('ficheEntreprise')}>Ajout Fiche Entreprise</button>
           <button onClick={() => handleClick('ficheReseau')}>Ajout Fiche Reseau</button>
           <button onClick={() => handleClick('rechercheFicheClient')}>Rechercher une fiche Client</button>
