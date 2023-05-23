@@ -2,15 +2,21 @@ import { useState } from "react";
 
 
 function Information (props) {
-    console.log(props.name, props.value);
+    
 
-    const [edit, setEdit] = useState(false);
+    const [value, setValue] = useState(props.value);
+    const handleChange = (e) => {
+        e.preventDefault();
+        setValue(e.target.value);
+    }
+    
     
 
     return(
         <div class="bloc_info">
-            <h3>{props.name}  </h3>
-            <p class="info">{props.value}</p>
+            <label for={props.name}>{props.name} :  </label>
+            <input class="info" type="text" name={props.name} id={props.name} onChange={handleChange} value={value}/>
+            
         </div>
     );
 }
