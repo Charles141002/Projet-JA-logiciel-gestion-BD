@@ -60,7 +60,7 @@ function App() {
       case 'afficherMenu':
         return <Menu />
       case 'afficherBarreRecherche':
-        return <BarreRecherche />
+        return <BarreRecherche donnees={datas}/>
       default:
         return null;
     }
@@ -70,7 +70,7 @@ function App() {
 
       <div className="container">
         <div className="menu">
-          <button onClick={() => handleClick('afficherBarreRecherche')}>Afficher Menu</button>
+          <button onClick={() => handleClick('afficherBarreRecherche')}>Afficher Barre de Recherche</button>
           <button onClick={() => handleClick('ficheClient')}>Ajout Fiche Client</button>
           <Menu datas={datas} />
           <button onClick={() => handleClick('ficheEntreprise')}>Ajout Fiche Entreprise</button>
