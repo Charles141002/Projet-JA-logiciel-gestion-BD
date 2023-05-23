@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Reseau from "./Fiche_reseau";
+import Fiche from "./Fiche";
 
 
 function groupBy(array, key) {
@@ -28,14 +29,15 @@ function Menu(props){
 
 
 function Dossier(props){
+    console.log(props);
     const isDossier = (props.class == "reseau");
     const [open, setOpen] = useState(false);
     const grouped = groupBy(props.datas[(isDossier ? 1 : 0)], isDossier ? "Reseau" : "Entreprise");
 
     console.log('groupe ', grouped[props.nom]);
         return (
-            <div class={(isDossier ? "" : "sous-") + "dossier"} >
-                <div class="bloc-titre-deroulant" onDoubleClick={() => setOpen(!(open))}>
+            <div className={(isDossier ? "" : "sous-") + "dossier"} >
+                <div class="bloc-titre-deroulant" onClick={() => <Fiche entite={props}/>} onDoubleClick={() => setOpen(!(open))}>
                     <h1>{props.nom}</h1>
                     <h1 onClick={() => setOpen(!(open))}>{(open ? "^": "<" )}</h1>
                 </div>
