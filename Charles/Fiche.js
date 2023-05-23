@@ -6,6 +6,7 @@ import App from '../App'
 
 
 function Fiche (props) {
+    console.log(props);
     console.log(props.entite);
     console.log(Object.entries(props.entite));
     return (
