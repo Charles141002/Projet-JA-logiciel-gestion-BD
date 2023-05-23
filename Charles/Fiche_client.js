@@ -66,7 +66,7 @@ function Client () {
         </div>
         <div class="form-group">
           <label for="telephone">Telephone :</label>
-          <input type="tel" pattern="[0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2} [0-9]{2}"required id="telephone" name="telephone"/>
+          <input type="tel"  id="telephone" name="telephone"/>
         </div>
         <div class="form-group">
           <label for="mail">Mail :</label>
