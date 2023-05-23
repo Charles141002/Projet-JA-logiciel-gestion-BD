@@ -215,17 +215,19 @@
   margin:0em;
   padding:0em;
   width: 100%;
+  
 }
 
-.bloc-titre-deroulant :hover {
-  background-color: #919191;
-}
+
+
+
 
 .dossier h1 {
   margin: 0.1em 0em;
   padding: 0em;
   font-size: large;
   font-weight: bold;
+  
 }
 
 .sous-dossier h1 {
