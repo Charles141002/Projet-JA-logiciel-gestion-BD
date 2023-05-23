@@ -10,16 +10,17 @@ import ExportationExcel from './Charles/Exportation_excel';
 import TableauFicheClient from './Charles/Tableau_fiche_client';
 import TableauFicheEntreprise from './Charles/Tableau_fiche_entreprise';
 import TableauFicheReseau from './Charles/Tableau_fiche_reseau';
+import workbook from './fichier_excel/export_excel';
 
 import Menu from './Charles/Menu_deroulant';
 
 function App() {
-  const file = XLSX.readFile('src/fichier_excel/Classeur1.xlsx');
-  const sheets = [0,1,2].map(key => file.Sheets[file.SheetNames[key]]);
+  
+  const sheets = [0,1,2].map(key => workbook.Sheets[workbook.SheetNames[key]]);
   const datas = sheets.map(sheet => XLSX.utils.sheet_to_json(sheet));
-  const worksheet = file.Sheets[file.SheetNames[0]];
-  const worksheet1 = file.Sheets[file.SheetNames[1]];
-  const worksheet2 = file.Sheets[file.SheetNames[2]];
+  const worksheet = workbook.Sheets[workbook.SheetNames[0]];
+  const worksheet1 = workbook.Sheets[workbook.SheetNames[1]];
+  const worksheet2 = workbook.Sheets[workbook.SheetNames[2]];
 
 
   const data = XLSX.utils.sheet_to_json(worksheet);
@@ -89,3 +90,4 @@ function App() {
 }
 
 export default App;
+

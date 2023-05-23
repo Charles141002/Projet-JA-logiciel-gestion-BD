@@ -1,5 +1,5 @@
 import React from 'react';
-import Information from './information';
+import Information from './Information';
 
 function PetiteFicheClient (props) {
     console.log(props.entite);
