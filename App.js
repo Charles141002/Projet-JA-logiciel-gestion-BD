@@ -13,6 +13,7 @@ import TableauFicheReseau from './Charles/Tableau_fiche_reseau';
 import workbook from './fichier_excel/export_excel';
 
 import Menu from './Charles/Menu_deroulant';
+import BarreRecherche from './Charles/Barre_de_recherche';
 
 function App() {
   
@@ -58,6 +59,8 @@ function App() {
         return <TableauFicheReseau donnees={data2}/>
       case 'afficherMenu':
         return <Menu />
+      case 'afficherBarreRecherche':
+        return <BarreRecherche />
       default:
         return null;
     }
@@ -67,6 +70,7 @@ function App() {
 
       <div className="container">
         <div className="menu">
+          <button onClick={() => handleClick('afficherBarreRecherche')}>Afficher Menu</button>
           <button onClick={() => handleClick('ficheClient')}>Ajout Fiche Client</button>
           <Menu datas={datas} />
           <button onClick={() => handleClick('ficheEntreprise')}>Ajout Fiche Entreprise</button>
@@ -79,7 +83,6 @@ function App() {
           <button onClick={() => handleClick('tableauFicheReseau')}>Tableau Fiche Reseau</button>
           <button onClick={() => handleClick('exporterExcel')}>Exporter Fichier Excel</button>
           <button onClick={() => handleClick('afficherMenu')}>Afficher Menu</button>
-
         </div>
         <div className="content">{renderActivePage()}</div>
       </div>
