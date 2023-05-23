@@ -55,8 +55,8 @@ function App() {
         return <TableauFicheEntreprise donnees={data1}/>
       case 'tableauFicheReseau':
         return <TableauFicheReseau donnees={data2}/>
-        case 'afficherMenu':
-          return <Menu />
+      case 'afficherMenu':
+        return <Menu />
       default:
         return null;
     }
