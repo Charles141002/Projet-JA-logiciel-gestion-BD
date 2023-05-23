@@ -58,8 +58,6 @@ function App() {
         return <TableauFicheEntreprise donnees={data1}/>
       case 'tableauFicheReseau':
         return <TableauFicheReseau donnees={data2}/>
-      case 'afficherMenu':
-        return <Menu />
       case 'afficherBarreRecherche':
         return <BarreRecherche donnees={datas}/>
       case 'afficherFiche':
@@ -85,11 +83,11 @@ function App() {
           <button onClick={() => handleClick('tableauFicheEntreprise')}>Tableau Fiche Entreprise</button>
           <button onClick={() => handleClick('tableauFicheReseau')}>Tableau Fiche Reseau</button>
           <button onClick={() => handleClick('exporterExcel')}>Exporter Fichier Excel</button>
-          <button onClick={() => handleClick('afficherMenu')}>Afficher Menu</button>
           <button onClick={() => handleClick('afficherFiche')}>Afficher Fiche</button>
-
         </div>
-        <div className="content">{renderActivePage()}</div>
+        <div className="content">
+          {renderActivePage()}
+        </div>
       </div>
     );
   
