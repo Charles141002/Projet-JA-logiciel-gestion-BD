@@ -1,4 +1,4 @@
-import App from '../App';
+import App from '../App'
 import { useState } from 'react';
 import root from '../index';
 import Fiche from './Fiche';

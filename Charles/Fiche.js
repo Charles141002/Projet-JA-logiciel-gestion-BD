@@ -1,7 +1,8 @@
-import React from 'react';
-import Information from './information';
+import React, { useState } from 'react';
+import Information from './Information';
+
 import root from '../index';
-import App from '../App';
+import App from '../App'
 
 
 function Fiche (props) {
@@ -20,4 +21,5 @@ function Fiche (props) {
 
 
 
-export default Fiche;
+
+export default Fiche; 

@@ -1,5 +1,6 @@
 import '../App.css'
 import App from '../App'
+import workbook from '../fichier_excel/export_excel'
 import * as XLSX from 'xlsx'
 import React from 'react'
 import { createRoot } from 'react-dom/client';
@@ -11,7 +12,7 @@ function Entreprise () {
   const addDataToExcelFile = (e) => {
     // Lire le fichier Excel existant
     e.preventDefault();
-    const workbook = XLSX.readFile('src/fichier_excel/Classeur1.xlsx');
+    
     
     
     // Sélectionner la feuille de calcul sur laquelle vous souhaitez ajouter des données
