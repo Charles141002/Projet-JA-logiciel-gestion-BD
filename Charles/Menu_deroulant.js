@@ -28,23 +28,22 @@ function Menu(props){
 
 
 function Dossier(props){
-    const grouped = groupBy(props.datas[1], 'Reseau');
-    console.log('Dossier', props)
-
+    const isDossier = (props.class == "reseau");
     const [open, setOpen] = useState(false);
-    
-    if (props.class == "reseau") {
+    const grouped = groupBy(props.datas[(isDossier ? 1 : 0)], isDossier ? "Reseau" : "Entreprise");
+
+    console.log('groupe ', grouped[props.nom]);
         return (
-            <div class="dossier" onDoubleClick={() => setOpen(!(open))}>
-                <div style={{display: 'flex',}}>
+            <div class={(isDossier ? "" : "sous-") + "dossier"} >
+                <div class="bloc-titre-deroulant" onDoubleClick={() => setOpen(!(open))}>
                     <h1>{props.nom}</h1>
-                    
+                    <h1 onClick={() => setOpen(!(open))}>{(open ? "^": "<" )}</h1>
                 </div>
-                
-                {open && grouped[props.nom].map(elt => <p>{elt.Nom}</p>)}
+                {(open && (!isDossier) && grouped[props.nom]) && grouped[props.nom].map(elt => <div class="bloc-titre-deroulant"><p>{elt.Nom} {elt.Prenom}</p></div>)}
+                {(open && isDossier && grouped[props.nom]) && grouped[props.nom].map(elt => <Dossier nom={elt.Nom} datas={props.datas} class="entreprise" />)}
             </div>
         );
-    }
+    
     
 }
 

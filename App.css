@@ -196,3 +196,53 @@
   left: 100%;
   min-width: 150px;
 }
+
+
+
+#menu-deroulant {
+  background-color: #dad5d5;
+  border: 20px black;
+  color: black;
+  margin: 3em 0em;
+  padding: 0.2em;
+  cursor: pointer;
+  user-select: none;
+}
+
+.bloc-titre-deroulant {
+  display: flex;
+  justify-content: space-between;
+  margin:0em;
+  padding:0em;
+  width: 100%;
+}
+
+.bloc-titre-deroulant :hover {
+  background-color: #919191;
+}
+
+.dossier h1 {
+  margin: 0.1em 0em;
+  padding: 0em;
+  font-size: large;
+  font-weight: bold;
+}
+
+.sous-dossier h1 {
+  margin: 0.05em 1em;
+  padding: 0em;
+  font-size: medium;
+  font-weight: normal;
+}
+
+
+
+#menu-deroulant p {
+  margin: 0.05em 2em;
+  padding: 0em;
+  font-size: small;
+  font-weight: normal;
+  font-style: italic;
+}
+
+
