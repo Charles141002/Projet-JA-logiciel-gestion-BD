@@ -88,9 +88,9 @@ function App() {
           <button onClick={() => handleClick('exporterExcel')}>Exporter Fichier Excel</button>
           <button onClick={() => handleClick('afficherFiche')}>Afficher Fiche</button>
         </div>
-        <div> <FenetreGauche customHook={customHook}/></div>
         <div className="content">
-          {renderActivePage()}
+          {renderActivePage() && <FenetreGauche customHook={customHook}/>}
+          {!renderActivePage() && <FenetreGauche customHook={customHook}/>}
         </div>
       </div>
     );
