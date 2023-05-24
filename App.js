@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import FicheClient from './Charles/Fiche_client';
 import FicheEntreprise from './Charles/Fiche_entreprise';
 import FicheReseau from './Charles/Fiche_reseau';
@@ -15,6 +15,8 @@ import workbook from './fichier_excel/export_excel';
 import Menu from './Charles/Menu_deroulant';
 import BarreRecherche from './Charles/Barre_de_recherche';
 import Fiche from './Charles/Fiche';
+import { FenetreGauche } from './Charles/Dossier';
+import { useCustomHook } from './Charles/Dossier';
 
 function App() {
   
@@ -29,6 +31,7 @@ function App() {
   const data1 = XLSX.utils.sheet_to_json(worksheet1);
   const data2 = XLSX.utils.sheet_to_json(worksheet2);
 
+  const customHook = useCustomHook();
 
   const [activePage, setActivePage] = useState('');
 
@@ -73,7 +76,7 @@ function App() {
         <div className="menu">
           <button onClick={() => handleClick('afficherBarreRecherche')}>Afficher Barre de Recherche</button>
           <button onClick={() => handleClick('ficheClient')}>Ajout Fiche Client</button>
-          <Menu datas={datas} />
+          <Menu datas={datas} customHook={customHook}/>
           <button onClick={() => handleClick('ficheEntreprise')}>Ajout Fiche Entreprise</button>
           <button onClick={() => handleClick('ficheReseau')}>Ajout Fiche Reseau</button>
           <button onClick={() => handleClick('rechercheFicheClient')}>Rechercher une fiche Client</button>
@@ -85,6 +88,7 @@ function App() {
           <button onClick={() => handleClick('exporterExcel')}>Exporter Fichier Excel</button>
           <button onClick={() => handleClick('afficherFiche')}>Afficher Fiche</button>
         </div>
+        <div> <FenetreGauche customHook={customHook}/></div>
         <div className="content">
           {renderActivePage()}
         </div>
@@ -94,6 +98,8 @@ function App() {
   
 
 }
+
+
 
 export default App;
 
