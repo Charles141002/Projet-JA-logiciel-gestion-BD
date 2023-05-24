@@ -1,18 +1,25 @@
 import { useState } from "react";
 import Reseau from "./Fiche_reseau";
 import Fiche from "./Fiche";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { icon, library } from '@fortawesome/fontawesome-svg-core';
+import { faBuilding } from '@fortawesome/free-solid-svg-icons';
+
+library.add(faBuilding);
+
 
 function Dossier(props){
     console.log(props);
     const isDossier = (props.class == "reseau");
     const [open, setOpen] = useState(false);
     const grouped = groupBy(props.datas[(isDossier ? 1 : 0)], isDossier ? "Reseau" : "Entreprise");
+    let icon = <FontAwesomeIcon icon="building" />;
 
     console.log('groupe ', grouped[props.nom]);
         return (
             <div className={(isDossier ? "" : "sous-") + "dossier"} >
                 <div class="bloc-titre-deroulant" onDoubleClick={() => setOpen(!(open))}>
-                    <h1>{props.nom}</h1>
+                    <h1>  {!(isDossier) && icon} {props.nom}</h1>
                     <h1 onClick={() => setOpen(!(open))}>{(open ? "^": "<" )}</h1>
                 </div>
                 {(open && (!isDossier) && grouped[props.nom]) && grouped[props.nom].map(elt => 
